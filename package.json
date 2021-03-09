@@ -1,0 +1,10 @@
+{
+  "name": "geocoding-postgis",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "pg": "^8.5.1",
+    "string-similarity": "^4.0.4"
+  }
+}
