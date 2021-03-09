@@ -1,6 +1,6 @@
-# Geocoding PostGIS
+# Geocoding PostGIS 🌎
 
-## Importação da Base de dados
+## Importação da Base de dados 💾
 
 [Download da base de dados](http://download.geofabrik.de/south-america/brazil/sul-latest-free.shp.zip)
 
@@ -11,7 +11,7 @@ Renomeie o arquivo *gis_osm_roads_free_1.shp* obtido no download da base de dado
 Utilize o executável *PostGIS Bundle 3 for PostgreSQL Shapefile and DBF Loader Exporter* (a partir da instalação do PostGIS) 
 para importar o arquivo shapefile *roads.shp* em sua instância ativa do PostgreSQL.
 
-## Execução do projeto
+## Execução do projeto 🔥
 
 * É necessária a instalação do Node.js versão LTS para a execução. Juntamente à instalação do Node, o npm (Node Package Manager) também deve ser instalado.
 
@@ -28,7 +28,7 @@ instância do PostgreSQL;
 
 5. Para alterar o endereço de busca, basta editar o parâmetro da função `findAddress` (linha 19), salvar o arquivo, e executar o passo anterior novamente!
 
-## Resultados Obtidos
+## Resultados Obtidos 💹
 
 **(Em progresso)**
 
@@ -40,6 +40,6 @@ instância do PostgreSQL;
 | col 2 is      | centered      |   $12 | 3m |
 | zebra stripes | are neat      |    $1 | 350m |
 
-## Considerações finais
+## Considerações finais 🎉🎉
 
 A biblioteca de similaridade utilizada ([string-similarity](https://www.npmjs.com/package/string-similarity)) implementa o algoritmo do [coeficiente de Dice](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient) para a comparação das strings.
