@@ -30,16 +30,20 @@ instância do Postgres com PostGIS;
 
 ## Resultados Obtidos 💹
 
-**(Em progresso)**
-
-| Endereço | Localização obtida | Localização real | Distância (m) |
+| Endereço | Localização obtida (LonLat) | Localização real (LonLat) | Distância |
 | ------------- |:-------------:| :-----:| -----:|
-| col 4 is      | right-aligned | $1600 | 2m |
-| col 2 is      | centered      |   $12 | 3m |
-| zebra stripes | are neat      |    $1 | 350m |
-| col 2 is      | centered      |   $12 | 3m |
-| zebra stripes | are neat      |    $1 | 350m |
+| Rua coronel cordova | -50.32514958600639, -27.820352441974872| -50.3287812, -27.8175391 | 350m |
+| Av Dom Pedro II | -49.07308521180593, -25.369003988772914 | -50.3222737, -27.8121736 | 393km |
+| Av marechal floriano | -51.59089548265946, -27.766630811637654 | -50.3357847, -27.8228067 | 194km |
+| rua heitor villa lobos | -51.11143903616328, -29.69445052072231 | -50.3409759, -27.800868 | 315km |
+| Rua Lauro Muller | -51.17765813176809, -29.883299200766206 | -51.9675394, -28.8473601 | 328km |
 
 ## Considerações finais 🎉🎉
+
+A principal causa da imprecisão do algoritmo se deve a falta da informação da cidade na entrada do usuário.
+O usuário até consegue pesquisar por cidade, porém, a tabela ***roads*** não possui informações para que seja
+feito o cruzamento com a cidade, deixando o algoritmo impreciso.
+
+Exemplo de imprecisão: Existem 14 registros para 'Rua Lauro Muller' na base de dados
 
 A biblioteca de similaridade utilizada ([string-similarity](https://www.npmjs.com/package/string-similarity)) implementa o algoritmo do [coeficiente de Dice](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient) para a comparação das strings.

@@ -16,7 +16,7 @@ const client = new Client({
 // javascript chamado "Hoisting" ou "Içamento". Esse comportamento faz com que antes da interpretação
 // (compilação) do código, todas as declarações de funções e de variáveis sejam elevadas ao topo de 
 // seu escopo.
-findAddress('Rua Coronel Córdova')
+findAddress('Rua Lauro Muller')
 
 // Declaração da função principal utilizando a palavra reservada "async", pois dentro dela, são 
 // executados métodos que demoram a retornar um valor (como uma consulta em banco de dados, por exemplo).
@@ -24,19 +24,9 @@ async function findAddress(address) {
     client.connect()
 
     try {
-        let number = address.split(',')[1]
-        if (number) {
-            number = number.length <= 3
-                ? number / 100
-                : number.length == 4
-                    ? number / 1000
-                    : 10000
-        }
-
         // Consulta na tabela, retornando o centróide da geometria em forma de coordenadas geográ-
         // ficas (latitude e longitude).
         const result = await client.query(
-            // `SELECT ST_X(ST_Centroid(geom)), ST_Y(ST_Centroid(geom)), ST_LineInterpolatePoint(geom, ${number}), * from roads`
             `SELECT ST_X(ST_Centroid(geom)), ST_Y(ST_Centroid(geom)), name from roads`
         )
 
@@ -63,9 +53,13 @@ async function findAddress(address) {
         // separadas por um espaço.
         const formatedAddress = `${firstWord ? firstWord + ' ' : ''}${splitedWords.join(' ')}`
 
-        // o método findBestMatch é da biblioteca de similaridade, ela espera dois parâmetros:
+        // O método findBestMatch é da biblioteca de similaridade utilizada, ela espera dois parâmetros:
         // 1 - a string base que se deseja comparar;
         // 2 - um array de strings para iterar e comparar com a string base.
+        // E retorna:
+        // 1 - os ratings de todos os registros;
+        // 2 - um objeto "bestMatch", contendo a string retornada e o rating dela;
+        // 3 - um valor "bestMatchIndex", que corresponde ao índice do registro com melhor rating
 
         // A consulta ao banco de dados retorna um objeto chamado rows, que é um array com todos 
         // os registros selecionados. O método map percorre o array rows (semelhante ao forEach), e
