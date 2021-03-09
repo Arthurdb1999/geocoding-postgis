@@ -4,7 +4,7 @@
 
 [Download da base de dados](http://download.geofabrik.de/south-america/brazil/sul-latest-free.shp.zip)
 
-..* É necessário o download e a instalação do PostGIS para a execução deste projeto.
+* É necessário o download e a instalação do PostGIS para a execução deste projeto.
 
 Renomeie o arquivo *gis_osm_roads_free_1.shp* obtido no download da base de dados para *roads.shp*.
 
@@ -13,7 +13,7 @@ para importar o arquivo shapefile *roads.shp* em sua instância ativa do Postgre
 
 ### Execução do projeto
 
-..* É necessária a instalação do Node.js versão LTS para a execução. Juntamente à instalação do Node, o npm (Node Package Manager) também deve ser instalado.
+* É necessária a instalação do Node.js versão LTS para a execução. Juntamente à instalação do Node, o npm (Node Package Manager) também deve ser instalado.
 
 [Download do Node.js](https://nodejs.org/en/)
 
